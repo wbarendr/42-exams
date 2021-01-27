@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdio.h>
 
 void		write_error(char *text1, char *text2, bool die){
 	for (int i = 0; text1[i]; ++i)
@@ -82,6 +83,7 @@ int			main(int argc, char **argv, char **envp){
 					waitpid(-1, NULL, 0);
 		}
 	}
+	dprintf(2, "num %d\n", process);
 	for (; process; process--)
 		waitpid(-1, NULL, 0);
 	return (0);
